@@ -48,7 +48,6 @@ form input {
   outline: none;
   border: none;
   padding: 12px;
-  width: 100%;
   font-size: 2.2rem;
   border: 2px solid var(--grey);
   border-radius: 12px;
@@ -168,11 +167,10 @@ footer {
 
 .select-dropdown,
 .select-status {
-  display: block;
   font-size: 2.2rem;
   color: #444;
   padding: 12px;
-  width: 100%;
+  width: 300px;
   max-width: 100%;
   margin: 0;
   border: 2px solid var(--grey);
