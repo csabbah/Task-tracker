@@ -1,25 +1,34 @@
 var formEl = document.querySelector('#task-form');
-
 var taskListEl = document.querySelector('.task-list');
 
-var counter = 0;
+// package up data as an object
+var taskDataObj = {};
+
+var taskEl = (taskNameInput, taskTypeInput) => {
+  // Create the LI element
+  var newTask = document.createElement('li');
+  newTask.classList.add('task-info');
+  newTask.innerHTML = `<h4 class="task-item">${taskNameInput}<span class='task-type'>${taskTypeInput}</span></h4>`;
+  // Add it to the main wrapper
+  taskListEl.appendChild(newTask);
+};
 var createTask = () => {
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
   var taskNameInput = document.querySelector("input[name='task-name']").value;
 
-  var listItemEl = document.createElement('li');
-  listItemEl.classList.add('task-item');
-  var newTask = document.createElement('div');
-  newTask.classList.add('task-info');
-  newTask.innerHTML = `<h4 class="task-item">Task #${counter}: ${taskNameInput}<span class='task-type'>${taskTypeInput}</span></h4>`;
+  taskEl(taskNameInput, taskTypeInput);
 
-  taskListEl.appendChild(newTask);
-  counter++;
+  // package up data as an object
+  taskDataObj = {
+    name: taskNameInput,
+    type: taskTypeInput,
+  };
 };
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
 
   createTask();
-  document.querySelector("input[name='task-name']").value = '';
+  document.querySelector("input[name='task-name']").value = ''; // Reset value of input
+  console.log(taskDataObj);
 });
