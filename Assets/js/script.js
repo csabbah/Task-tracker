@@ -13,6 +13,7 @@ var taskEl = (taskNameInput, taskTypeInput) => {
   taskListEl.appendChild(newTask);
 };
 
+var counter = 0;
 var createTask = () => {
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
   var taskNameInput = document.querySelector("input[name='task-name']").value;
@@ -24,9 +25,12 @@ var createTask = () => {
 
     // package up data as an object
     taskDataObj = {
+      id: counter,
       name: taskNameInput,
       type: taskTypeInput,
     };
+    counter++;
+
     // Reset value of input
     // Forms have a reset option to clear all fields
     formEl.reset();
