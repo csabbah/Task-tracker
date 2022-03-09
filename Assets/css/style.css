@@ -103,6 +103,8 @@ footer {
 }
 
 .task-item {
+  display: flex;
+  flex-direction: column;
   color: var(--grey);
   padding: 15px 15px;
   border: 2px solid var(--grey);
