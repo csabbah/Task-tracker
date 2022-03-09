@@ -12,23 +12,29 @@ var taskEl = (taskNameInput, taskTypeInput) => {
   // Add it to the main wrapper
   taskListEl.appendChild(newTask);
 };
+
 var createTask = () => {
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
   var taskNameInput = document.querySelector("input[name='task-name']").value;
 
-  taskEl(taskNameInput, taskTypeInput);
+  if (!taskTypeInput || !taskNameInput) {
+    alert('Please fill in the required fields');
+  } else {
+    taskEl(taskNameInput, taskTypeInput);
 
-  // package up data as an object
-  taskDataObj = {
-    name: taskNameInput,
-    type: taskTypeInput,
-  };
+    // package up data as an object
+    taskDataObj = {
+      name: taskNameInput,
+      type: taskTypeInput,
+    };
+    // Reset value of input
+    // Forms have a reset option to clear all fields
+    formEl.reset();
+  }
 };
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
 
   createTask();
-  document.querySelector("input[name='task-name']").value = ''; // Reset value of input
-  console.log(taskDataObj);
 });
