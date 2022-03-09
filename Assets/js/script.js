@@ -1,5 +1,4 @@
-var buttonEl = document.querySelector('#save-task');
-var buttonDeleteEl = document.querySelector('#delete-task');
+var formEl = document.querySelector('#task-form');
 
 var taskListEl = document.querySelector('.task-list');
 
@@ -9,4 +8,8 @@ var createTask = () => {
   taskListEl.appendChild(newTask);
 };
 
-buttonEl.addEventListener('click', createTask);
+formEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  createTask();
+});
