@@ -93,6 +93,7 @@ footer {
 }
 
 .task-list {
+  overflow-y: scroll;
   list-style: none;
   padding: 15px;
   height: 300px;
