@@ -55,7 +55,6 @@ form input {
 
 form .form-group {
   margin: 10px 6px 10px 0;
-  flex: 1;
 }
 
 footer {
@@ -96,7 +95,7 @@ footer {
 .task-list {
   list-style: none;
   padding: 15px;
-  height: calc(100% - 50px);
+  height: 300px;
   background: rgb(196, 196, 196);
   border-radius: 12px;
   border: 2px solid var(--grey);
